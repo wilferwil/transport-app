@@ -16,7 +16,9 @@
                 <li>
                     <strong>Nome:</strong> {{ $transportadora->name }} <br>
                     <strong>E-mail:</strong> {{ $transportadora->email }} <br>
-                    <strong>Nota da Transportadora:</strong> {{ $transportadora->score }}
+                    <strong>Nota da Transportadora:</strong> {{ $transportadora->score }}<br>
+                    <strong><a href="/ratings/{{ $transportadora->id }}/create">Avaliar Transportadora</a></strong> <br>
+                    <strong><a href="/ratings/{{ $transportadora->id }}/show">Visualizar Avaliações</a></strong> <br>
                 </li>
             @endforeach
         </ul>
