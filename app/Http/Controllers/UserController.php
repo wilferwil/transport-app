@@ -34,4 +34,13 @@ class UserController extends Controller
 
         return redirect()->route('register.form')->with('success', 'Usuário registrado com sucesso!');
     }
+    
+    public function listTransportadoras()
+    {
+        // Fetch only users of type 'transportadora'
+        $transportadoras = User::where('account_type', 'transportadora')->get();
+
+        // Pass the data to the view
+        return view('users.transportadoras', ['transportadoras' => $transportadoras]);
+    }
 }
