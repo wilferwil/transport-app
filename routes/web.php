@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ColetaController;
 use App\Http\Controllers\TransportadoraRatingController;
+use App\Http\Controllers\Auth\LoginController;
 
-Route::get('/', [UserController::class, 'showRegistrationForm'])->name('register.form');
+Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
 Route::get('/register', [UserController::class, 'showRegistrationForm'])->name('register.form');
 Route::post('/register', [UserController::class, 'register'])->name('register');
 Route::get('/transportadoras', [UserController::class, 'listTransportadoras'])->name('transportadoras.list');
@@ -18,3 +19,11 @@ Route::get('/ratings/{transportadora_id}/create', [TransportadoraRatingControlle
     ->name('ratings.create');
 Route::post('/ratings', [TransportadoraRatingController::class, 'store'])
     ->name('ratings.store');
+
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login.post');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware('auth')->name('dashboard');
