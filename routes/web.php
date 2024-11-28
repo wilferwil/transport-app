@@ -16,9 +16,11 @@ Route::post('/coletas/store', [ColetaController::class, 'store'])->name('coletas
 Route::get('/coletas', [ColetaController::class, 'index'])->name('coletas.index');
 
 Route::get('/ratings/{transportadora_id}/create', [TransportadoraRatingController::class, 'create'])
-    ->name('ratings.create');
+    ->middleware('auth')->name('ratings.create');
 Route::post('/ratings', [TransportadoraRatingController::class, 'store'])
     ->name('ratings.store');
+Route::get('/ratings/{transportadora_id}', [TransportadoraRatingController::class, 'show'])
+    ->name('ratings.show');
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.post');

@@ -28,8 +28,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function rating()
+    {
+        return $this->hasMany(TransportadoraRating::class, 'transportadora_id');
+    }
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
+    }
+
+    public function getAverageRating()
+    {
+        return $this->rating()->avg('nota');
     }
 }
