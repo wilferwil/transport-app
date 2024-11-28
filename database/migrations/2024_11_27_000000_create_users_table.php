@@ -12,7 +12,8 @@ return new class extends Migration {
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->enum('account_type', ['transportadora', 'vendedor']); // Tipo de conta
+            $table->enum('account_type', ['transportadora', 'vendedor']);
+            $table->integer('score')->default(5);
             $table->timestamps();
         });
 

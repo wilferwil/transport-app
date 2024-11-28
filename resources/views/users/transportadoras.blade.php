@@ -15,7 +15,8 @@
             @foreach ($transportadoras as $transportadora)
                 <li>
                     <strong>Nome:</strong> {{ $transportadora->name }} <br>
-                    <strong>E-mail:</strong> {{ $transportadora->email }}
+                    <strong>E-mail:</strong> {{ $transportadora->email }} <br>
+                    <strong>Nota da Transportadora:</strong> {{ $transportadora->score }}
                 </li>
             @endforeach
         </ul>
