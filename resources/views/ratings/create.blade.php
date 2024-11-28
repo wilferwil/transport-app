@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
-    <h1>Avaliar Transportadora: {{ $transportadora->name }}</h1>
+    <h1>Avaliar Transportadora:<br>{{ $transportadora->name }}</h1>
 
     @if (session('success'))
         <p style="color: green;">{{ session('success') }}</p>
