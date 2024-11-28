@@ -2,33 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    // Método para registrar um usuário
+    
+    public function showRegistrationForm()
+    {
+        return view('auth.register'); 
+    }
+
+    
     public function register(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:8|confirmed',
             'account_type' => 'required|in:transportadora,vendedor',
         ]);
 
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 422);
-        }
-
-        $user = User::create([
+        
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'account_type' => $request->account_type,
         ]);
 
-        return response()->json(['message' => 'User registered successfully!', 'user' => $user], 201);
+        return redirect()->route('register.form')->with('success', 'Usuário registrado com sucesso!');
     }
 }
