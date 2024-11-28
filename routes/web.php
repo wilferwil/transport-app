@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ColetaController;
 
 Route::get('/', [UserController::class, 'showRegistrationForm'])->name('register.form');
 Route::get('/register', [UserController::class, 'showRegistrationForm'])->name('register.form');
