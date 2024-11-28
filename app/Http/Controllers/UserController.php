@@ -39,9 +39,6 @@ class UserController extends Controller
     {
         $transportadoras = User::where('account_type', 'transportadora')->get();
 
-        dd($transportadoras);
-        // dd($transportadoras);
-
         return view('users.transportadoras', ['transportadoras' => $transportadoras]);
     }
 }

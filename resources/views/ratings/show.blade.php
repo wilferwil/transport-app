@@ -1,4 +1,13 @@
-<h1>Avaliações de {{ $transportadora->name }}</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliações da Transportadora</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+    <h1>Avaliações de {{ $transportadora->name }}</h1>
 
 @if ($ratings->isEmpty())
     <p>Sem avaliações no momento.</p>
@@ -12,3 +21,5 @@
         </div>
     @endforeach
 @endif
+</body>
+</html>
