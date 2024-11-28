@@ -33,6 +33,7 @@
         <div>
             <label for="account_type">Tipo de Conta:</label>
             <select id="account_type" name="account_type" required>
+                <option>Selecione um tipo</option>
                 <option value="vendedor">Vendedor</option>
                 <option value="transportadora">Transportadora</option>
             </select>
