@@ -61,5 +61,9 @@
         </div>
         <button type="submit">Solicitar Coleta</button>
     </form>
+
+    <button onclick="window.location.href='{{ url()->previous() }}'" class="btn-back">
+        Voltar
+    </button>
 </body>
 </html>

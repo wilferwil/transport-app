@@ -17,12 +17,16 @@
                 <li>
                     <strong>Nome:</strong> {{ $transportadora->name }} <br>
                     <strong>E-mail:</strong> {{ $transportadora->email }} <br>
-                    <strong>Nota da Transportadora:</strong> {{ $transportadora->rating->avg('nota') ?? "Sem avaliações" }}<br>
+                    <strong>Nota da Transportadora:</strong> {{ $transportadora->rating->avg('nota') ? number_format($transportadora->rating->avg('nota'), 2, ',', '') : "Sem avaliações" }}<br>
                     <strong><a href="/ratings/{{ $transportadora->id }}/create">Avaliar Transportadora</a></strong> <br>
                     <strong><a href="/ratings/{{ $transportadora->id }}">Visualizar Avaliações</a></strong> <br>
                 </li>
             @endforeach
         </ul>
     @endif
+
+    <button onclick="window.location.href='{{ url()->previous() }}'" class="btn-back">
+        Voltar
+    </button>
 </body>
 </html>

@@ -21,5 +21,9 @@
         </div>
     @endforeach
 @endif
+
+    <button onclick="window.location.href='{{ url()->previous() }}'" class="btn-back">
+        Voltar
+    </button>
 </body>
 </html>

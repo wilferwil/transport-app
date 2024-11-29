@@ -21,6 +21,8 @@ class CreateColetasTable extends Migration
             $table->time('hora_coleta');
             $table->unsignedBigInteger('transportadora_id');
             $table->foreign('transportadora_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -29,7 +29,7 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Credenciais inválidas ou você não é um vendedor.',
+            'email' => 'Login ou senhas inválidos.',
         ])->onlyInput('email');
     }
 

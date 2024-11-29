@@ -20,6 +20,7 @@ class Coleta extends Model
         'data_coleta',
         'hora_coleta',
         'transportadora_id',
+        'user_id',
     ];
 
     public function transportadora()

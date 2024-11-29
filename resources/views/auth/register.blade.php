@@ -41,5 +41,9 @@
         </div>
         <button type="submit">Registrar</button>
     </form>
+
+    <button onclick="window.location.href='/'" class="btn-back">
+        Voltar
+    </button>
 </body>
 </html>

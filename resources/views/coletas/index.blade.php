@@ -17,12 +17,18 @@
                 <li>
                     <strong>Remetente:</strong> {{ $coleta->nome_remetente }} <br>
                     <strong>Endereço:</strong> {{ $coleta->endereco_coleta }} <br>
-                    <strong>Data:</strong> {{ $coleta->data_coleta }} <br>
+                    <strong>Data:</strong> {{ date("d/m/Y", strtotime($coleta->data_coleta)); }} <br>
                     <strong>Hora:</strong> {{ $coleta->hora_coleta }} <br>
-                    <strong>Transportadora:</strong> {{ $coleta->transportadora->name }}
+                    <strong>Transportadora:</strong> {{ $coleta->transportadora->name }} <br>
+                    <strong>Dimensões:</strong> {{ $coleta->comprimento }}cm x {{ $coleta->largura }}cm x {{ $coleta->altura }}cm <br>
+                    <strong>Peso:</strong> {{ $coleta->peso }}kg
                 </li>
             @endforeach
         </ul>
     @endif
+
+    <button onclick="window.location.href='{{ url()->previous() }}'" class="btn-back">
+        Voltar
+    </button>
 </body>
 </html>

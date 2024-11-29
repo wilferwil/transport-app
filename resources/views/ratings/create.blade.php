@@ -35,5 +35,9 @@
 
         <button type="submit">Enviar Avaliação</button>
     </form>
+
+    <button onclick="window.location.href='{{ url()->previous() }}'" class="btn-back">
+        Voltar
+    </button>
 </body>
 </html>
