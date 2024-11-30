@@ -78,10 +78,9 @@
 
             <button type="submit">Enviar Notificação</button>
         </form>
+        <button onclick="window.location.href='{{ url()->previous() }}'" class="btn-back">
+            Voltar
+        </button>
     </div>
-
-    <button onclick="window.location.href='{{ url()->previous() }}'" class="btn-back">
-        Voltar
-    </button>
 </body>
 </html>
