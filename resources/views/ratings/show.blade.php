@@ -22,7 +22,7 @@
     @endforeach
 @endif
 
-    <button onclick="window.location.href='{{ url()->previous() }}'" class="btn-back">
+    <button onclick="window.location.href='/transportadoras'" class="btn-back">
         Voltar
     </button>
 </body>
